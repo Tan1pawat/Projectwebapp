@@ -16,10 +16,6 @@ namespace Projectwebapp.Controllers
         {
             return View();
         }
-        public IActionResult Login()
-        {
-            return View();
-        }
         public IActionResult Regis()
         {
             return View();
@@ -27,10 +23,15 @@ namespace Projectwebapp.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(User obj) { 
-            _db.User.Add(obj);
-            _db.SaveChanges();
-            return RedirectToAction("Login");
+        public IActionResult Regis(User obj) { 
+            if (ModelState.IsValid)
+            {
+                _db.User.Add(obj);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(obj);
+
         }
     }
 }
