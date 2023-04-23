@@ -11,8 +11,8 @@ using Projectwebapp.Data;
 namespace Projectwebapp.Migrations
 {
     [DbContext(typeof(ApplicationDBcontext))]
-    [Migration("20230422030635_addUserDB")]
-    partial class addUserDB
+    [Migration("20230423023041_addIdpassDB")]
+    partial class addIdpassDB
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,11 +32,16 @@ namespace Projectwebapp.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Name")
+                    b.Property<string>("ConfirmPassword")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Pass")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Secid")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

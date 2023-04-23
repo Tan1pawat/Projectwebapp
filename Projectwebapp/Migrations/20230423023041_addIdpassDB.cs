@@ -5,7 +5,7 @@
 namespace Projectwebapp.Migrations
 {
     /// <inheritdoc />
-    public partial class addUserDB : Migration
+    public partial class addIdpassDB : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -16,8 +16,9 @@ namespace Projectwebapp.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Pass = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Secid = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Pass = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    ConfirmPassword = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {

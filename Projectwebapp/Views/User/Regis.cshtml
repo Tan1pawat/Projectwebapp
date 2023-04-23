@@ -1,0 +1,52 @@
+﻿@model User
+@{
+    ViewData["Title"] = "Register";
+}
+
+<section class="vh-100 bg-image"
+         style="background-image: url('https://th.bing.com/th/id/R.2896d0b4dd72756d37a07b757ec73492?rik=kNJXRhBwZ%2fLNRg&pid=ImgRaw&r=0');background-size: cover;">
+    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+        <div class="container h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100 " style="color:coral">
+                <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                    <div class="card" style="border-radius: 15px;">
+                        <div class="card-body p-5">
+                            <h2 class="text-uppercase text-center mb-5">Register</h2>
+
+                            <form method="POST" asp-controller="User" asp-action="Create">
+
+                                <div class="form-outline mb-4">
+                                    <label asp-for="Secid" class="form-label" for="form3Example1cg">Student ID</label>
+                                    <input type="number" asp-for="Secid" id="form3Example1cg" class="form-control form-control-lg" />
+                                    
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    <label asp-for="Pass" class="form-label" for="form3Example4cg">Password</label>
+                                    <input type="text" asp-for="Pass" id="form3Example4cg" class="form-control form-control-lg" />
+                                    
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="form3Example4cdg">Repeat your password</label>
+                                    <input type="password" id="form3Example4cdg" class="form-control form-control-lg" />
+                                    
+                                </div>
+
+                                <div class="d-flex justify-content-center">
+                                    <button type="button"
+                                            class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" style="background-color:darkorange">
+                                        Register
+                                    </button>
+                                </div>
+
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

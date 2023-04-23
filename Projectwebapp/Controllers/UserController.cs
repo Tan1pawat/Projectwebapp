@@ -20,7 +20,11 @@ namespace Projectwebapp.Controllers
         {
             return View();
         }
-        
+        public IActionResult Regis()
+        {
+            return View();
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(User obj) { 
