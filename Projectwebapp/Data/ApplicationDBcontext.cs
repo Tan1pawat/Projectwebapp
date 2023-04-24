@@ -10,6 +10,6 @@ namespace Projectwebapp.Data
         
         }
         public DbSet<User> User { get; set; }
-        
+
     }
 }

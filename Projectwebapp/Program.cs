@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.CookiePolicy;
+using Microsoft.AspNetCore.Session;
 using Microsoft.EntityFrameworkCore;
 using Projectwebapp.Data;
 
@@ -5,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddSession();
 builder.Services.AddDbContext<ApplicationDBcontext>(
     Options => Options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
     );
@@ -19,10 +22,19 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
 app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseSession();
+
+app.UseCookiePolicy(new CookiePolicyOptions
+{
+    MinimumSameSitePolicy = SameSiteMode.Strict,
+    HttpOnly = HttpOnlyPolicy.Always,
+    Secure = CookieSecurePolicy.SameAsRequest
+});
 app.UseAuthorization();
 
 app.MapControllerRoute(
