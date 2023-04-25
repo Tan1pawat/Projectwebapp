@@ -29,12 +29,6 @@ app.UseRouting();
 
 app.UseSession();
 
-app.UseCookiePolicy(new CookiePolicyOptions
-{
-    MinimumSameSitePolicy = SameSiteMode.Strict,
-    HttpOnly = HttpOnlyPolicy.Always,
-    Secure = CookieSecurePolicy.SameAsRequest
-});
 app.UseAuthorization();
 
 app.MapControllerRoute(

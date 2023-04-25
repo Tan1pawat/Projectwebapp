@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using Projectwebapp.Data;
 using Projectwebapp.Models;
 using Microsoft.AspNetCore.Session;
+using Microsoft.AspNetCore.Authorization;
+
 namespace Projectwebapp.Controllers
 {
     public class UserController : Controller
@@ -54,7 +56,7 @@ namespace Projectwebapp.Controllers
             }
             else
             {
-                ModelState.AddModelError("", "Student ID หรือ Password ไม่ถูกต้อง\n\n(กรุณากรอกข้อมูลใหม่)");
+                ModelState.AddModelError("","Student ID หรือ Password ไม่ถูกต้อง");
             }
             return View(loginUser);
         }
