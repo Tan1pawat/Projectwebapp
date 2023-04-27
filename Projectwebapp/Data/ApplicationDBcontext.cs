@@ -7,7 +7,6 @@ namespace Projectwebapp.Data
     {
         public ApplicationDBcontext(DbContextOptions<ApplicationDBcontext>options) :base(options)
         {
-        
         }
         public DbSet<User> User { get; set; }
 

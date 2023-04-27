@@ -1,0 +1,39 @@
+﻿@model IEnumerable<foodde.Models.Sender>;
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-center">รายการคนสั่งอาหาร</h1><br /><br />
+<style>
+    .grid {
+        position: relative;
+        display:grid;
+        grid-template: 200px / auto auto ;
+        color: black;
+        padding:30px;
+        grid-gap: 10px;
+        background-color: bisque;
+    }
+</style>
+
+@foreach(var user in Model)
+{
+    <div class="row g-0 bg-body-secondary position-relative">
+    <span class="border border-5 , position-static">
+    <div class="grid">
+     <div class="pic">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsAVpd65Uke8-RcllDONzTeVI0YcPo6XJ-pHIR7uKIo_-dcBd_2iF73jWWkmLJIt53kjU&usqp=CAU" class="w-80" >
+     </div>
+     <div class="detail">
+         <h5>ชื่อ : @user.Name</h5>
+         <h5>รหัส : @user.Id</h5>
+         <h5>ร้าน : @user.Store</h5>
+         <h5>อาหาร : @user.Menu</h5>
+         <h5>ที่อยู่ : @user.Address</h5>
+         <h5>เบอร์โทร : @user.Number</h5>
+         <a class="stretched-link" asp-area="" asp-controller="Sender" asp-action="Getorder"></a>
+     </div>
+     </div>
+    </span>
+    </div><br /><br />
+<br /> }
