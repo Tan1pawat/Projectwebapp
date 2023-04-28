@@ -1,0 +1,212 @@
+﻿@using Projectwebapp.Models;
+@model Sender
+@{
+    ViewData["Title"] = "เมนู";
+}
+<style>
+    .store {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        background-color: rgb(255, 184, 78);
+        border-radius: 10px;
+        /*@*box-shadow:04px8px0rgba(0,0,0,0.2),06px20px0rgba(0,0,0,0.19);*@*/
+    }
+
+    .mainS {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-radius: 10px;
+        background-color: rgb(248, 196, 117);
+    }
+
+    .image {
+        position: relative;
+        margin: 20px;
+        border-radius: 10px;
+    }
+
+    .storeCap {
+        justify-content: center;
+        margin-top: 30px;
+    }
+
+    .menu {
+        display: flex;
+        flex-wrap: wrap;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 3%;
+    }
+
+    .form-check {
+        width: 25%;
+    }
+
+    .opt {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    .speac {
+        width: 75%;
+    }
+</style>
+<div class="mainS border-3">
+    <div class="store border-3">
+        <img class="image" src="https://sv1.picz.in.th/images/2023/04/19/mIk4xg.png" alt="ร้านมิลเลียน" width="200" height="150">
+        <div class="storeCap caption">
+            ชื่อร้าน : ร้านมิลเลียน <br />
+            ประเภทอาหาร : ราดหน้า,ผัดไท,ก๋วยเตี๋ยว,ข้าวผัด,ข้าวยำไก่
+        </div>
+    </div>
+
+    <form class="menu" asp-controller="Order" asp-action="Menu1" method="POST">
+        <input asp-for="Username" type="hidden" value="64010597">
+        <input asp-for="FoodStore" type="hidden" value="ร้านมิลเลียน">
+        <input asp-for="FoodMenu_Option" type="hidden" id="F_opt" value="รายการอาหาร">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="ก๋วยเตี๋ยวคั่วไก่" id="m1"> <label class="form-check-label" for="m1">ก๋วยเตี๋ยวคั่วไก่</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="ราดหน้าหมู" id="m2"> <label class="form-check-label" for="m2">ราดหน้าหมู</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="ราดหน้าไก่" id="m3"> <label class="form-check-label" for="m3">ราดหน้าไก่</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="ราดหน้าทะเล" id="m4"> <label class="form-check-label" for="m4">ราดหน้าทะเล</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="ข้าวผัดน้ำพริกลงเรือ" id="m5"> <label class="form-check-label" for="m5">ข้าวผัดน้ำพริกลงเรือ</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="ข้าวผัดพริกเผาหมู" id="m6"> <label class="form-check-label" for="m6">ข้าวผัดพริกเผาหมู</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="ข้าวผัดพริกเผาไก่" id="m7"> <label class="form-check-label" for="m7">ข้าวผัดพริกเผาไก่</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="ข้าวผัดพริกเผาทะเล" id="m8"> <label class="form-check-label" for="m8">ข้าวผัดพริกเผาทะเล</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="ข้าวผัดอเมริกัน" id="m9"> <label class="form-check-label" for="m9">ข้าวผัดอเมริกัน</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="ข้าวผัดสับปะรด" id="m10"> <label class="form-check-label" for="m10">ข้าวผัดสับปะรด</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="ข้าวผัดต้มยำหมู" id="m11"> <label class="form-check-label" for="m11">ข้าวผัดต้มยำหมู</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="ข้าวผัดต้มยำไก่" id="m12"> <label class="form-check-label" for="m12">ข้าวผัดต้มยำไก่</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="ข้าวผัดต้มยำทะเล" id="m13"> <label class="form-check-label" for="m13">ข้าวผัดต้มยำทะเล</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="ข้าวผัดผงกะหรี่หมู" id="m14"> <label class="form-check-label" for="m14">ข้าวผัดผงกะหรี่หมู</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="ข้าวผัดผงกะหรี่ไก่" id="m15"> <label class="form-check-label" for="m15">ข้าวผัดผงกะหรี่ไก่</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="ข้าวผัดผงกะหรี่ทะเล" id="m16"> <label class="form-check-label" for="m16">ข้าวผัดผงกะหรี่ทะเล</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="ผัดไทกุ้งสด" id="m17"> <label class="form-check-label" for="m17">ผัดไทกุ้งสด</label>
+        </div>
+        <div class="form-check speac">
+            <input class="form-check-input" type="checkbox" value="ข้าวยำคอหมูย่าง" id="m18"> <label class="form-check-label" for="m18">ข้าวยำคอหมูย่าง</label>
+        </div>
+        <div class="opt">
+            <h2>Option</h2>
+            <textarea class="form-control form-rounded " rows="3" cols="100" name="option" id="option"></textarea>
+            <br />
+            <div>
+                <div class="form-group">
+                    <div class="form-horizontal col-xs-4">
+                        <label class="control-label col-sm-2" for="nameReceive">ชื่อผู้รับ :</label>
+                        <input class="form-control col-sm-4" type="text" id="nameReceive" asp-for="RecipientName" required>
+                    </div>
+                    <div class="form-horizontal col-xs-4">
+                        <label class="control-label col-sm-2" for="PhoneNumber">เบอร์โทรศัพท์ :</label>
+                        <input class="form-control" type="text" id="PhoneNumber" asp-for="PhoneNumber" required>
+                    </div>
+                </div>
+                <div class="form-horizontal col-xs-4">
+                    <label class="control-label col-sm-2" for="RecipientAddress">ที่อยู่ :</label>
+                    <input class="form-control" type="text" id="RecipientAddress" asp-for="RecipientAddress" required>
+                </div>
+            </div>
+            <br />
+            <input type="submit" onclick="sendOrder()" value="submit">
+        </div>
+
+    </form>
+
+</div>
+<script>
+    function sendOrder() {
+        orderAll = [];
+        var text = document.getElementById("text");
+        if (document.getElementById("m1").checked == true) {
+            orderAll.push(document.getElementById("m1").value)
+        }
+        if (document.getElementById("m2").checked == true) {
+            orderAll.push(document.getElementById("m2").value)
+        }
+        if (document.getElementById("m3").checked == true) {
+            orderAll.push(document.getElementById("m3").value)
+        }
+        if (document.getElementById("m4").checked == true) {
+            orderAll.push(document.getElementById("m4").value)
+        }
+        if (document.getElementById("m5").checked == true) {
+            orderAll.push(document.getElementById("m5").value)
+        }
+        if (document.getElementById("m6").checked == true) {
+            orderAll.push(document.getElementById("m6").value)
+        }
+        if (document.getElementById("m7").checked == true) {
+            orderAll.push(document.getElementById("m7").value)
+        }
+        if (document.getElementById("m8").checked == true) {
+            orderAll.push(document.getElementById("m8").value)
+        }
+        if (document.getElementById("m9").checked == true) {
+            orderAll.push(document.getElementById("m9").value)
+        }
+        if (document.getElementById("m10").checked == true) {
+            orderAll.push(document.getElementById("m10").value)
+        }
+        if (document.getElementById("m11").checked == true) {
+            orderAll.push(document.getElementById("m11").value)
+        }
+        if (document.getElementById("m12").checked == true) {
+            orderAll.push(document.getElementById("m12").value)
+        }
+        if (document.getElementById("m13").checked == true) {
+            orderAll.push(document.getElementById("m13").value)
+        }
+        if (document.getElementById("m14").checked == true) {
+            orderAll.push(document.getElementById("m14").value)
+        }
+        if (document.getElementById("m15").checked == true) {
+            orderAll.push(document.getElementById("m15").value)
+        }
+        if (document.getElementById("m16").checked == true) {
+            orderAll.push(document.getElementById("m16").value)
+        }
+        if (document.getElementById("m17").checked == true) {
+            orderAll.push(document.getElementById("m17").value)
+        }
+        if (document.getElementById("m18").checked == true) {
+            orderAll.push(document.getElementById("m18").value)
+        }
+        orderAll.push("option=" + document.getElementById("option").value)
+        document.getElementById("F_opt").value = orderAll.join(",");
+    }
+
+</script>

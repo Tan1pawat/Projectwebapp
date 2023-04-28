@@ -11,8 +11,8 @@ using Projectwebapp.Data;
 namespace Projectwebapp.Migrations
 {
     [DbContext(typeof(ApplicationDBcontext))]
-    [Migration("20230423023041_addIdpassDB")]
-    partial class addIdpassDB
+    [Migration("20230428065113_Adduserdata")]
+    partial class Adduserdata
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -47,7 +47,7 @@ namespace Projectwebapp.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("User");
+                    b.ToTable("Users");
                 });
 #pragma warning restore 612, 618
         }

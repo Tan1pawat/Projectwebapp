@@ -1,4 +1,4 @@
-﻿@model IEnumerable<foodde.Models.Sender>;
+﻿@model IEnumerable<Projectwebapp.Models.Sender>;
 @{
     ViewData["Title"] = "Index";
 }
@@ -25,12 +25,12 @@
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsAVpd65Uke8-RcllDONzTeVI0YcPo6XJ-pHIR7uKIo_-dcBd_2iF73jWWkmLJIt53kjU&usqp=CAU" class="w-80" >
      </div>
      <div class="detail">
-         <h5>ชื่อ : @user.Name</h5>
-         <h5>รหัส : @user.Id</h5>
-         <h5>ร้าน : @user.Store</h5>
-         <h5>อาหาร : @user.Menu</h5>
-         <h5>ที่อยู่ : @user.Address</h5>
-         <h5>เบอร์โทร : @user.Number</h5>
+         <h5>ชื่อ : @user.RecipientName</h5>
+         <h5>รหัส : @user.OrderID </h5>
+         <h5>ร้าน : @user.FoodStore</h5>
+         <h5>อาหาร : @user.FoodMenu_Option</h5>
+         <h5>ที่อยู : @user.RecipientAddress</h5>
+         <h5>เบอร์โทร : @user.PhoneNumber</h5>
          <a class="stretched-link" asp-area="" asp-controller="Sender" asp-action="Getorder"></a>
      </div>
      </div>

@@ -33,7 +33,7 @@ namespace Projectwebapp.Controllers
         public IActionResult Regis(User obj) { 
             if (ModelState.IsValid)
             {
-                _db.User.Add(obj);
+                _db.Users.Add(obj);
                 _db.SaveChanges();
                 HttpContext.Session.SetString("UserId", obj.Id.ToString());
                 return RedirectToAction("Index");
@@ -45,7 +45,7 @@ namespace Projectwebapp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Index([Bind("Secid, Pass")] User loginUser)
         {
-            var login = await _db.User.FirstOrDefaultAsync(u => u.Secid == loginUser.Secid && u.Pass == loginUser.Pass);
+            var login = await _db.Users.FirstOrDefaultAsync(u => u.Secid == loginUser.Secid && u.Pass == loginUser.Pass);
 
             if (login != null)
             {

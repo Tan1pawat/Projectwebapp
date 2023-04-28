@@ -1,4 +1,4 @@
-﻿
+﻿@model Projectwebapp.Models.Sender;
 @{
     ViewData["Title"] = "Getorder";
 }
@@ -14,12 +14,12 @@
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsAVpd65Uke8-RcllDONzTeVI0YcPo6XJ-pHIR7uKIo_-dcBd_2iF73jWWkmLJIt53kjU&usqp=CAU" width="800px;" height="500px;">
             </div><br /><br />
             <div class=" text-center">
-                <h5>ชื่อ : </h5>
-                <h5>รหัส : </h5>
-                <h5>ร้าน : </h5>
-                <h5>อาหาร : </h5>
-                <h5>ที่อยู่ : </h5>
-                <h5>เบอร์ : </h5>
+                <h5>ชื่อ : @Model.RecipientName</h5>
+                <h5>รหัส : @Model.OrderID </h5>
+                <h5>ร้าน : @Model.FoodStore</h5>
+                <h5>อาหาร : @Model.FoodMenu_Option</h5>
+                <h5>ที่อยู : @Model.RecipientAddress</h5>
+                <h5>เบอร์โทร : @Model.PhoneNumber</h5>
             </div>
         </div><br /><br />
     </span>

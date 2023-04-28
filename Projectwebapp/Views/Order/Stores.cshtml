@@ -1,0 +1,116 @@
+@{
+    ViewData["Title"] = "ร้านค้า";
+}
+
+<style>
+    a { text-decoration: none; 
+        color: black !important;}
+    .col{
+        width: 33%;
+
+        /*@* background-color: rgb(238, 200, 128); *@*/
+    }
+    .store{
+      display: flex;
+      align-content: space-between;
+      background-color: rgb(255, 184, 78);
+      border-radius: 10px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    .storeCap{
+      justify-content: center;
+      margin-top: 30px;
+    }
+    img {
+      justify-content: start;
+      margin : 20px;
+      border-radius: 10px;
+    }
+</style>
+
+<div class="container-fluid">
+    <div class="row row-cols-3 row-cols-lg-3 g-2 g-lg-3">
+        <a class="col"  asp-area="" asp-controller="Order" asp-action="Menu1"> 
+            <div class="store border-3">
+                <img src="https://sv1.picz.in.th/images/2023/04/19/mIkWeN.png" alt="ร้านเทคโนอินเตอร์" width="200" height="150">
+                <div class="storeCap caption">
+                        ชื่อร้าน : ร้านเทคโนอินเตอร์ <br />
+                        ประเภทอาหาร : อาหารชุด,อาหารญี่ปุ่น
+                </div>
+            </div>
+        </a>
+        <a class="col"  asp-area="" asp-controller="Order" asp-action="Menu2"> 
+            <div class="store border-3">
+                <img src="https://sv1.picz.in.th/images/2023/04/19/mIk0kV.png" alt="ร้านป้าศรีส้มตำ" width="200" height="150">
+                <div class="storeCap caption">
+                        ชื่อร้าน : ร้านป้าศรีส้มตำ <br />
+                    ประเภทอาหาร : ส้มตำ,ต้มแซ่บ,ลาบ,ข้าวยำไก่
+                </div>
+            </div>
+        </a>
+        <a class="col"  asp-area="" asp-controller="Order" asp-action="Menu3"> 
+            <div class="store border-3">
+                <img src="https://sv1.picz.in.th/images/2023/04/19/mIk7OQ.png" alt="ร้านไอ้หนวด" width="200" height="150">
+                <div class="storeCap caption">
+                        ชื่อร้าน : ร้านไอ้หนวด <br />
+                    ประเภทอาหาร : ข้าวราดแกง
+                </div>
+            </div>
+        </a>
+        <a class="col"  asp-area="" asp-controller="Order" asp-action="Menu4"> 
+            <div class="store border-3">
+                <img src="https://sv1.picz.in.th/images/2023/04/19/mIkSaS.png" alt="ร้านมามา ก๋วยเตี๋ยวเรือ" width="200" height="150">
+                <div class="storeCap caption">
+                        ชื่อร้าน : ร้านมามา ก๋วยเตี๋ยวเรือ<br />
+                    ประเภทอาหาร : เกี๊ยวน้ำหมูแดง,ก๋วยเตี๋ยว,ก๋วยจั๊บ,เย็นตาโฟ,เกาเหลา
+                </div>
+            </div>
+        </a>
+        <a class="col"  asp-area="" asp-controller="Order" asp-action="Menu5"> 
+            <div class="store border-3">
+                <img src="https://sv1.picz.in.th/images/2023/04/19/mIkzzn.png" alt="ร้านณรงค์ข้าวมันไก่" width="200" height="150">
+                <div class="storeCap caption">
+                        ชื่อร้าน : ร้านณรงค์ข้าวมันไก่ <br />
+                    ประเภทอาหาร : ข้าวมันไก่,ข้าวหมูอบ
+                </div>
+            </div>
+        </a>
+        <a class="col"  asp-area="" asp-controller="Order" asp-action="Menu6"> 
+            <div class="store border-3">
+                <img src="https://sv1.picz.in.th/images/2023/04/19/mIk4xg.png" alt="ร้านมิลเลียน" width="200" height="150">
+                <div class="storeCap caption">
+                    ชื่อร้าน : ร้านมิลเลียน <br />
+                    ประเภทอาหาร : ราดหน้า,ผัดไท,ก๋วยเตี๋ยว,ข้าวผัด,ข้าวยำไก่
+                </div>
+            </div>
+        </a>
+        <a class="col"  asp-area="" asp-controller="Order" asp-action="Menu7">
+            <div class="store border-3">
+                <img src="https://sv1.picz.in.th/images/2023/04/19/mIkfW2.png" alt="ร้านอิดรีส" width="200" height="150">
+                <div class="storeCap caption">
+                        ชื่อร้าน : ร้านอิดรีส <br />
+                    ประเภทอาหาร : ข้าวราดแกง
+                </div>
+            </div>
+        </a>
+        <a class="col"  asp-area="" asp-controller="Order" asp-action="Menu8">
+                <div class="store border-3">
+                    <img src="https://sv1.picz.in.th/images/2023/04/19/mIkhK1.png" alt="ร้านไอเย็น" width="200" height="150">
+                    <div class="storeCap caption">
+                            ชื่อร้าน : ร้านไอเย็น <br />
+                        ประเภทอาหาร : รวมมิตร/ลอดช่อง,น้ำแข็งใส,เต้าทึง,ขนม/ขนมไทย,ซาลาเปา,ลูกชิ้นทอด,ผลไม้
+                    </div>
+                </div>
+        </a>
+        <a class="col"  asp-area="" asp-controller="Order" asp-action="Menu9">
+            <div class="store border-3">
+                <img src="https://sv1.picz.in.th/images/2023/04/19/mIkkAy.png" alt="ร้านพี่ฝน กาแฟสด&น้ำ" width="200" height="150">
+                <div class="storeCap caption">
+                        ชื่อร้าน : ร้านพี่ฝน กาแฟสด&น้ำ <br />
+                    ประเภทอาหาร : เครื่องดื่ม
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+

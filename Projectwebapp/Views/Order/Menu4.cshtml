@@ -1,0 +1,186 @@
+﻿@using Projectwebapp.Models;
+@model Sender
+@{
+    ViewData["Title"] = "เมนู";
+}
+<style>
+    .store {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        background-color: rgb(255, 184, 78);
+        border-radius: 10px;
+    /*@*box-shadow:04px8px0rgba(0,0,0,0.2),06px20px0rgba(0,0,0,0.19);*@*/
+    }
+
+    .mainS {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-radius: 10px;
+        background-color: rgb(248, 196, 117);
+    }
+
+    .image {
+        position: relative;
+        margin: 20px;
+        border-radius: 10px;
+    }
+
+    .storeCap {
+        justify-content: center;
+        margin-top: 30px;
+    }
+    .menu{
+        display: flex;
+        flex-wrap: wrap;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 3%;
+    }
+    .form-check{
+        width: 25%;
+    }
+    .opt{
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    .speac {
+        width: 75%;
+    }
+</style>
+<div class="mainS border-3">
+    <div class="store border-3">
+            <img class="image" src="https://sv1.picz.in.th/images/2023/04/19/mIkSaS.png" alt="ร้านมามา ก๋วยเตี๋ยวเรือ" width="200" height="150">
+            <div class="storeCap caption">
+                    ชื่อร้าน : ร้านมามา ก๋วยเตี๋ยวเรือ<br />
+              ประเภทอาหาร : เกี๊ยวน้ำหมูแดง,ก๋วยเตี๋ยว,ก๋วยจั๊บ,เย็นตาโฟ,เกาเหลา
+            </div>
+    </div>
+
+    <form class="menu" asp-controller="Order" asp-action="Menu1" method="POST">
+        <input asp-for="Username" type="hidden" value="64010597">
+        <input asp-for="FoodStore" type="hidden" value="ร้านมามา ก๋วยเตี๋ยวเรือ">
+        <input asp-for="FoodMenu_Option" type="hidden" id="F_opt" value="รายการอาหาร">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="ก๋วยเตี๋ยวเรือน้ำตกหมู" id="m1"> <label class="form-check-label" for="m1">ก๋วยเตี๋ยวเรือน้ำตกหมู</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="ก๋วยเตี๋ยวเนื้อตุ๋น" id="m2"> <label class="form-check-label" for="m2">ก๋วยเตี๋ยวเนื้อตุ๋น</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="ก๋วยเตี๋ยวหมูตุ๋น" id="m3"> <label class="form-check-label" for="m3">ก๋วยเตี๋ยวหมูตุ๋น</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="ก๋วยเตี๋ยวไก่ตุ๋น" id="m4"> <label class="form-check-label" for="m4">ก๋วยเตี๋ยวไก่ตุ๋น</label>
+        </div>
+        <div class="form-check">    
+            <input class="form-check-input" type="checkbox" value="ก๋วยเตี๋ยวน้ำใส" id="m5"> <label class="form-check-label" for="m5">ก๋วยเตี๋ยวน้ำใส</label>
+        </div>
+        <div class="form-check">    
+            <input class="form-check-input" type="checkbox" value="ก๋วยเตี๋ยวต้มยำน้ำใส" id="m6"> <label class="form-check-label" for="m6">ก๋วยเตี๋ยวต้มยำน้ำใส</label>
+        </div> 
+        <div class="form-check">    
+            <input class="form-check-input" type="checkbox" value="ก๋วยเตี๋ยวต้มยำน้ำข้น" id="m7"> <label class="form-check-label" for="m7">ก๋วยเตี๋ยวต้มยำน้ำข้น</label>
+        </div> 
+        <div class="form-check">    
+            <input class="form-check-input" type="checkbox" value="เย็นตาโฟ" id="m8"> <label class="form-check-label" for="m8">เย็นตาโฟ</label>
+        </div> 
+        <div class="form-check">    
+            <input class="form-check-input" type="checkbox" value="ก๋วยจั๊บ" id="m9"> <label class="form-check-label" for="m9">ก๋วยจั๊บ</label>
+        </div> 
+        <div class="form-check">    
+            <input class="form-check-input" type="checkbox" value="เกี๊ยวน้ำหมูแดง" id="m10"> <label class="form-check-label" for="m10">เกี๊ยวน้ำหมูแดง</label>
+        </div> 
+        <div class="form-check">    
+            <input class="form-check-input" type="checkbox" value="เกาเหลาหมูตุ๋น" id="m11"> <label class="form-check-label" for="m11">เกาเหลาหมูตุ๋น</label>
+        </div>
+        <div class="form-check">    
+            <input class="form-check-input" type="checkbox" value="เกาเหลาเนื้อตุ๋น" id="m12"> <label class="form-check-label" for="m12">เกาเหลาเนื้อตุ๋น</label>
+        </div> 
+        <div class="form-check">    
+            <input class="form-check-input" type="checkbox" value="เกาเหลาไก่ตุ๋น" id="m13"> <label class="form-check-label" for="m13">เกาเหลาไก่ตุ๋น</label>
+        </div> 
+        <div class="form-check speac">    
+            <input class="form-check-input" type="checkbox" value="ไข่เป็ดยางมะตูม" id="m14"> <label class="form-check-label" for="m14">ไข่เป็ดยางมะตูม</label>
+        </div> 
+        <div class="opt">
+            <h2>Option</h2>
+            <textarea class="form-control form-rounded " rows="3" cols="100" name="option" id="option"></textarea>
+            <br/>
+            <div>
+                <div class="form-group">
+                    <div class="form-horizontal col-xs-4">
+                        <label class="control-label col-sm-2" for="nameReceive">ชื่อผู้รับ :</label>
+                        <input class="form-control col-sm-4" type="text" id="nameReceive" asp-for="RecipientName" required>
+                    </div>
+                    <div class="form-horizontal col-xs-4">
+                        <label class="control-label col-sm-2" for="PhoneNumber">เบอร์โทรศัพท์ :</label>
+                        <input class="form-control" type="text" id="PhoneNumber" asp-for="PhoneNumber" required>
+                    </div>
+                </div>
+                <div class="form-horizontal col-xs-4">
+                    <label class="control-label col-sm-2" for="RecipientAddress">ที่อยู่ :</label>
+                    <input class="form-control" type="text" id="RecipientAddress" asp-for="RecipientAddress" required>
+                </div>
+            </div>
+            <br />
+            <input type="submit" onclick="sendOrder()" value="submit">
+        </div>
+
+    </form>
+
+</div>
+<script>
+        function sendOrder() {
+            orderAll=[];
+            var text = document.getElementById("text");
+            if (document.getElementById("m1").checked == true) {
+                orderAll.push(document.getElementById("m1").value)
+            }
+            if(document.getElementById("m2").checked == true){
+                orderAll.push(document.getElementById("m2").value)
+            }
+            if(document.getElementById("m3").checked == true){
+                orderAll.push(document.getElementById("m3").value)
+            }
+            if(document.getElementById("m4").checked == true){
+                orderAll.push(document.getElementById("m4").value)
+            }
+            if(document.getElementById("m5").checked == true){
+                orderAll.push(document.getElementById("m5").value)
+            }
+            if(document.getElementById("m6").checked == true){
+                orderAll.push(document.getElementById("m6").value)
+            }
+            if(document.getElementById("m7").checked == true){
+                orderAll.push(document.getElementById("m7").value)
+            }
+            if(document.getElementById("m8").checked == true){
+                orderAll.push(document.getElementById("m8").value)
+            }
+            if(document.getElementById("m9").checked == true){
+                orderAll.push(document.getElementById("m9").value)
+            }
+            if(document.getElementById("m10").checked == true){
+                orderAll.push(document.getElementById("m10").value)
+            }
+            if(document.getElementById("m11").checked == true){
+                orderAll.push(document.getElementById("m11").value)
+            }
+            if(document.getElementById("m12").checked == true){
+                orderAll.push(document.getElementById("m12").value)
+            }
+            if(document.getElementById("m13").checked == true){
+                orderAll.push(document.getElementById("m13").value)
+            }
+            if(document.getElementById("m14").checked == true){
+                orderAll.push(document.getElementById("m14").value)
+            }
+            orderAll.push("option="+document.getElementById("option").value)
+            document.getElementById("F_opt").value = orderAll.join(",");
+
+        }
+
+    </script>
