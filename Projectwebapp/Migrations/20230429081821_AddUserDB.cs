@@ -5,7 +5,7 @@
 namespace Projectwebapp.Migrations
 {
     /// <inheritdoc />
-    public partial class Adduserdata : Migration
+    public partial class AddUserDB : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

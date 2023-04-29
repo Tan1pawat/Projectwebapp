@@ -1,0 +1,29 @@
+﻿@using Projectwebapp.Models;
+@using Microsoft.AspNetCore.Mvc;
+@using Microsoft.EntityFrameworkCore;
+@using Projectwebapp.Data;
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<section class="vh-100 bg-image"
+         style="background-image: url('https://wallpapercave.com/wp/wp4041567.jpg');background-size: cover;">
+    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+        <div class="container h-100">
+            @if (@HttpContextAccessor.HttpContext.Session.GetString("UserId")==null)
+            {
+                <div class="row d-flex justify-content-center align-items-center h-100 " style="color:coral">
+                    <h1 class="text-center mb-5" style="font-size:80px;">คุณยังไม่ได้ login</h1>
+                </div>
+            }
+            else
+            {
+                <div class="row d-flex justify-content-center align-items-center h-100 " style="color:coral">
+                    <h1 class="text-center " style="font-size:80px;">StudentID:@HttpContextAccessor.HttpContext.Session.GetString("UserId")</h1>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+

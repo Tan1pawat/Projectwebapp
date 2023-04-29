@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Projectwebapp.Data;
+using Microsoft.EntityFrameworkCore;
 using Projectwebapp.Data;
 using Projectwebapp.Models;
 
@@ -19,7 +19,15 @@ namespace Projectwebapp.Controllers
         {
             _db.Sender.Add(obj);
             _db.SaveChanges();
-            return RedirectToAction("Stores");
+            return RedirectToAction("Thankyou");
+        }
+        public IActionResult Waiting()
+        {
+            return View();
+        }
+        public IActionResult Thankyou()
+        {
+            return View();
         }
         public IActionResult Stores()
         {

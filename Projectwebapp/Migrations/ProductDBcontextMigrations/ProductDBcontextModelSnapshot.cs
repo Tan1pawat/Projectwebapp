@@ -40,6 +40,10 @@ namespace Projectwebapp.Migrations.ProductDBcontextMigrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Pictures")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("RecipientAddress")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Projectwebapp.Migrations.ProductDBcontextMigrations
 {
     [DbContext(typeof(ProductDBcontext))]
-    [Migration("20230428065204_Addproductdata")]
-    partial class Addproductdata
+    [Migration("20230429081854_AddProductDB")]
+    partial class AddProductDB
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -40,6 +40,10 @@ namespace Projectwebapp.Migrations.ProductDBcontextMigrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Pictures")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

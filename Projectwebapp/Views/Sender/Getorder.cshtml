@@ -11,7 +11,7 @@
         <br /><br />
         <div class=" text-center">
             <div class="pic">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsAVpd65Uke8-RcllDONzTeVI0YcPo6XJ-pHIR7uKIo_-dcBd_2iF73jWWkmLJIt53kjU&usqp=CAU" width="800px;" height="500px;">
+                <img src="@Model.Pictures" width="800px;" height="500px;">
             </div><br /><br />
             <div class=" text-center">
                 <h5>ชื่อ : @Model.RecipientName</h5>
@@ -28,6 +28,6 @@
 <br />
 <br />
 <div class="text-center">
-    <a class="btn btn-danger" asp-area="" asp-controller="Sender" asp-action="Index">back</a>
-    <a class="btn btn-info" asp-area="" asp-controller="Sender" asp-action="Confirm">submit</a>
+    <a class="btn btn-danger" asp-controller="Sender" asp-action="Index">back </a>
+    <a class="btn btn-info" href="@Url.Action("Confirm", "Sender", new { id = Model.OrderID })">submit</a>
 </div>

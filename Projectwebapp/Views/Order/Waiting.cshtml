@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewData["Title"] = "Waiting";
+}
+
+<style>
+    .cDN {
+        height: 78vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+<div class="cDN">
+    <img src="https://i.gifer.com/3AfW.gif" style="width: 30%; height: 200px;">
+    <br />
+    <h1 style="text-align: center;">Your Order</h1>
+    <p style="text-align: center;">Your Order is in processing, Please wait.</p>
+    <a class="btn btn-danger" asp-area="" asp-controller="Order" asp-action="Stores">ORDER SUCCESS</a>
+</div>
+

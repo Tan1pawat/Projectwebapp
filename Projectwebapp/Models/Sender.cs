@@ -20,5 +20,7 @@ namespace Projectwebapp.Models
         public string PhoneNumber { get; set; } = string.Empty;
         [Required]
         public string RecipientAddress { get; set; } = string.Empty;
+        [Required]
+        public string Pictures { get; set; } = string.Empty;
     }
 }

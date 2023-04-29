@@ -1,20 +1,22 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Projectwebapp.Data;
 using Projectwebapp.Models;
-using Microsoft.AspNetCore.Session;
-using Microsoft.AspNetCore.Authorization;
+
 
 namespace Projectwebapp.Controllers
 {
     public class UserController : Controller
     {
         private readonly ApplicationDBcontext _db;
-        public UserController(ApplicationDBcontext db)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        public UserController(ApplicationDBcontext db, IHttpContextAccessor httpContextAccessor)
         {
+            _httpContextAccessor = httpContextAccessor;
             _db = db;
         }
-
+        
         public IActionResult Index()
         {
             return View();
@@ -24,6 +26,10 @@ namespace Projectwebapp.Controllers
             return View();
         }
         public IActionResult Home()
+        {
+            return View();
+        }
+        public IActionResult Profile() 
         {
             return View();
         }
@@ -46,18 +52,17 @@ namespace Projectwebapp.Controllers
         public async Task<IActionResult> Index([Bind("Secid, Pass")] User loginUser)
         {
             var login = await _db.Users.FirstOrDefaultAsync(u => u.Secid == loginUser.Secid && u.Pass == loginUser.Pass);
-
+            HttpContext.Session.SetString("UserId", login.Secid.ToString());
             if (login != null)
             {
-                // set the user as logged in using session or cookie
-                // for example:
-                HttpContext.Session.SetString("UserId", login.Id.ToString());
+
                 return RedirectToAction("Home");
             }
             else
             {
                 ModelState.AddModelError("","Student ID หรือ Password ไม่ถูกต้อง");
             }
+            
             return View(loginUser);
         }
 

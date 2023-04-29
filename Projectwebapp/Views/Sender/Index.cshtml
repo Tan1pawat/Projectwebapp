@@ -3,37 +3,49 @@
     ViewData["Title"] = "Index";
 }
 
-<h1 class="text-center">รายการคนสั่งอาหาร</h1><br /><br />
+<h1 class="text-center">รายการคนสั่งอาหาร</h1>
+<br />
+<br />
 <style>
     .grid {
         position: relative;
-        display:grid;
-        grid-template: 200px / auto auto ;
+        display: grid;
+        grid-template: 200px / auto auto;
         color: black;
-        padding:30px;
+        padding: 30px;
         grid-gap: 10px;
         background-color: bisque;
     }
+
+    .pic {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
 </style>
 
-@foreach(var user in Model)
+@foreach (var user in Model)
 {
     <div class="row g-0 bg-body-secondary position-relative">
-    <span class="border border-5 , position-static">
-    <div class="grid">
-     <div class="pic">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsAVpd65Uke8-RcllDONzTeVI0YcPo6XJ-pHIR7uKIo_-dcBd_2iF73jWWkmLJIt53kjU&usqp=CAU" class="w-80" >
-     </div>
-     <div class="detail">
-         <h5>ชื่อ : @user.RecipientName</h5>
-         <h5>รหัส : @user.OrderID </h5>
-         <h5>ร้าน : @user.FoodStore</h5>
-         <h5>อาหาร : @user.FoodMenu_Option</h5>
-         <h5>ที่อยู : @user.RecipientAddress</h5>
-         <h5>เบอร์โทร : @user.PhoneNumber</h5>
-         <a class="stretched-link" asp-area="" asp-controller="Sender" asp-action="Getorder"></a>
-     </div>
-     </div>
-    </span>
-    </div><br /><br />
-<br /> }
+        <div class="border border-5 , position-static">
+            <div class="grid">
+                <div class="pic">
+                    <img src="@user.Pictures" style="max-height:30vh; max-width:100%;">
+                </div>
+                <div class="detail">
+                    <h5>ชื่อ : @user.RecipientName</h5>
+                    <h5>รหัส : @user.OrderID </h5>
+                    <h5>ร้าน : @user.FoodStore</h5>
+                    <h5>อาหาร : @user.FoodMenu_Option</h5>
+                    <h5>ที่อยู : @user.RecipientAddress</h5>
+                    <h5>เบอร์โทร : @user.PhoneNumber</h5>
+                    <a class="stretched-link" asp-route-id="@user.OrderID" asp-controller="Sender" asp-action="Getorder"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+    <br />
+}

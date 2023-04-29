@@ -5,7 +5,7 @@
 namespace Projectwebapp.Migrations.ProductDBcontextMigrations
 {
     /// <inheritdoc />
-    public partial class Addproductdata : Migration
+    public partial class AddProductDB : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -21,7 +21,8 @@ namespace Projectwebapp.Migrations.ProductDBcontextMigrations
                     FoodMenu_Option = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     RecipientName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    RecipientAddress = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    RecipientAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Pictures = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {

@@ -1,4 +1,8 @@
 ﻿@using Projectwebapp.Models;
+@using Microsoft.AspNetCore.Mvc;
+@using Microsoft.EntityFrameworkCore;
+@using Projectwebapp.Data;
+@inject IHttpContextAccessor HttpContextAccessor
 @model Sender
 @{
     ViewData["Title"] = "เมนู";
@@ -63,9 +67,10 @@
     </div>
 
     <form class="menu" asp-controller="Order" asp-action="Menu1" method="POST">
-        <input asp-for="Username" type="hidden" value="64010597">
+        <input asp-for="Username" type="hidden" value=@HttpContextAccessor.HttpContext.Session.GetString("UserId")>
         <input asp-for="FoodStore" type="hidden" value="ร้านอิดรีส">
         <input asp-for="FoodMenu_Option" type="hidden" id="F_opt" value="รายการอาหาร">
+        <input asp-for="Pictures" type="hidden" value="https://sv1.picz.in.th/images/2023/04/19/mIkfW2.png">
         <div class="form-check">
             <input class="form-check-input" type="checkbox" value="ไข่ต้ม" id="m1"> <label class="form-check-label" for="m1">ไข่ต้ม</label>
         </div>

@@ -7,7 +7,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddSession();
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+});
+
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddDbContext<ApplicationDBcontext>(
     Options => Options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
     );

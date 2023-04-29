@@ -11,8 +11,8 @@ using Projectwebapp.Data;
 namespace Projectwebapp.Migrations
 {
     [DbContext(typeof(ApplicationDBcontext))]
-    [Migration("20230428065113_Adduserdata")]
-    partial class Adduserdata
+    [Migration("20230429081821_AddUserDB")]
+    partial class AddUserDB
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
