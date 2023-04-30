@@ -9,11 +9,9 @@
 <style>
     .grid {
         position: relative;
-        display: grid;
-        grid-template: 200px / auto auto;
+        display: flex;
         color: black;
         padding: 30px;
-        grid-gap: 10px;
         background-color: bisque;
     }
 
@@ -21,6 +19,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        margin-left:100px;
+        margin-right: 150px;
     }
 
 </style>
@@ -31,7 +31,7 @@
         <div class="border border-5 , position-static">
             <div class="grid">
                 <div class="pic">
-                    <img src="@user.Pictures" style="max-height:30vh; max-width:100%;">
+                    <img src="@user.Pictures" style="height: 250px; width: 300px;">
                 </div>
                 <div class="detail">
                     <h5>ชื่อ : @user.RecipientName</h5>

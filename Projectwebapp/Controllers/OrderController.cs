@@ -2,9 +2,14 @@
 using Microsoft.EntityFrameworkCore;
 using Projectwebapp.Data;
 using Projectwebapp.Models;
+using System.Security.Claims;//new
+using Microsoft.AspNetCore.Authentication;//new
+using Microsoft.AspNetCore.Authentication.Cookies;//new
+using Microsoft.AspNetCore.Authorization;
 
 namespace Projectwebapp.Controllers
 {
+    [Authorize]
     public class OrderController : Controller
     {
         private readonly ProductDBcontext _db;
@@ -20,6 +25,12 @@ namespace Projectwebapp.Controllers
             _db.Sender.Add(obj);
             _db.SaveChanges();
             return RedirectToAction("Thankyou");
+        }
+        public async Task<IActionResult> LogOut() //new 
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            HttpContext.Session.Clear();
+            return RedirectToAction("index", "User");
         }
         public IActionResult Waiting()
         {

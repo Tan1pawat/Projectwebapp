@@ -3,7 +3,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Projectwebapp.Data;
 using Projectwebapp.Models;
-
+using System.Security.Claims;//new
+using Microsoft.AspNetCore.Authentication;//new
+using Microsoft.AspNetCore.Authentication.Cookies;//new
+using Microsoft.AspNetCore.Authorization;
 
 namespace Projectwebapp.Controllers
 {
@@ -17,14 +20,20 @@ namespace Projectwebapp.Controllers
             _db = db;
         }
         
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+
+            ClaimsPrincipal claimUser = HttpContext.User;
+            if (claimUser.Identity.IsAuthenticated)
+                return View();
             return View();
         }
         public IActionResult Regis()
         {
             return View();
         }
+        [Authorize]
         public IActionResult Home()
         {
             return View();
@@ -52,10 +61,23 @@ namespace Projectwebapp.Controllers
         public async Task<IActionResult> Index([Bind("Secid, Pass")] User loginUser)
         {
             var login = await _db.Users.FirstOrDefaultAsync(u => u.Secid == loginUser.Secid && u.Pass == loginUser.Pass);
-            HttpContext.Session.SetString("UserId", login.Secid.ToString());
+            
             if (login != null)
             {
+                HttpContext.Session.SetString("UserId", login.Secid.ToString());
+                List<Claim> claims = new List<Claim>(){
+                    new Claim(ClaimTypes.NameIdentifier,loginUser.Secid),
+                    new Claim("OtherProperties","Example Role")
+                };
+                ClaimsIdentity claimsIdentify = new ClaimsIdentity(claims,
+                    CookieAuthenticationDefaults.AuthenticationScheme);
 
+                AuthenticationProperties properties = new AuthenticationProperties()
+                {
+                    AllowRefresh = true
+                };
+                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
+                    new ClaimsPrincipal(claimsIdentify), properties);
                 return RedirectToAction("Home");
             }
             else

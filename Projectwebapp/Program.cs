@@ -2,11 +2,17 @@ using Microsoft.AspNetCore.CookiePolicy;
 using Microsoft.AspNetCore.Session;
 using Microsoft.EntityFrameworkCore;
 using Projectwebapp.Data;
-
+using Microsoft.AspNetCore.Authentication.Cookies;//new
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme) //new
+    .AddCookie(option => //new
+    {
+        option.LoginPath = "/User/Index";
+        option.ExpireTimeSpan = TimeSpan.FromMinutes(20);
+    }); //new
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromMinutes(30);

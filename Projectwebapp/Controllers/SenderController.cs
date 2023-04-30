@@ -1,7 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Projectwebapp.Models;
+using Microsoft.AspNetCore.Authentication;//new
+using Microsoft.AspNetCore.Authorization;
+
 namespace Projectwebapp.Controllers
 {
+    [Authorize]
     public class SenderController : Controller
     {
         private readonly ProductDBcontext _db;
