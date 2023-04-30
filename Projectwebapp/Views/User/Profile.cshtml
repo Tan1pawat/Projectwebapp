@@ -21,6 +21,11 @@
             {
                 <div class="row d-flex justify-content-center align-items-center h-100 " style="color:coral">
                     <h1 class="text-center " style="font-size:80px;">StudentID:@HttpContextAccessor.HttpContext.Session.GetString("UserId")</h1>
+                    <div class="d-flex justify-content-center">
+                        <a asp-controller="User" asp-action="Index" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" style="background-color:darkorange">
+                            Logout
+                        </a>
+                    </div>
                 </div>
             }
         </div>
