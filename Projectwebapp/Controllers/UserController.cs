@@ -42,6 +42,10 @@ namespace Projectwebapp.Controllers
         {
             return View();
         }
+        public IActionResult MadeBy()
+        {
+            return View();
+        }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
